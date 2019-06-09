@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import PhoneNumberGenerator from './PhoneNumberGenerator';
+
 const BASE_URL = 'http://localhost:3000/api';
 const MIN_NUMBER = -1;
 const MAX_NUMBER = 1;
 const ASC = 1;
-const DESC = -1; 
+const DESC = -1;
 
 class App extends React.Component {
   state = {
@@ -46,12 +48,25 @@ class App extends React.Component {
     this.setState({phoneNumbers});
   }
 
+  inputFieldChange = event => {
+    const {name, value} = event.target;
+    this.setState({generateForm: {[name]: value}});
+  };
+
+  generate = () => {
+    console.log('Phone number generating');
+  };
+
   render() {
     const {phoneNumbers, number} = this.state;
 
     return (
       <div>
         <h1>Phone Number Generator</h1>
+        <PhoneNumberGenerator
+          onInputFieldChange={this.inputFieldChange}
+          onGenerate={this.generate}
+        />
         <div className="control">
           <span>
             Sort <i onClick={() => this.sort(ASC)}>Asending</i>
