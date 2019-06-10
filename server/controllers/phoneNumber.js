@@ -30,7 +30,7 @@ export default class PhoneNumber {
     const numbers = [];
 
     while (phoneNumberCount-- > 0) {
-      const number = Math.ceil(10000000000 + Math.random() * 90000000000);
+      const number = '0' + Math.ceil(10000000000 + Math.random() * 90000000000);
 
       if (phoneNumbers.includes(number)) {
         phoneNumbersCount++;
