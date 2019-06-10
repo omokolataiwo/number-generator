@@ -6,8 +6,8 @@ const PhoneNumberGenerator = ({
   error,
 }) => {
   return (
-    <div>
-      <p>{error}</p>
+    <div className="generate-form">
+      <p className="error">{error}</p>
       <input
         type="text"
         name="numberCount"

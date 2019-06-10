@@ -1,0 +1,50 @@
+.generate-form {
+  margin: 3% auto;
+}
+.generate-form input {
+  height: 3em;
+  width: 40em;
+  padding-left: 10px;
+  font-size: 1em;
+  color: #444;
+}
+.generate-form button {
+  margin: auto 1em;
+  padding: 0.8em;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #eee;
+  background-color: #5cbff9;
+}
+.error {
+  color: #f00;
+  font-size: 1.2em;
+}
+.phone-numbers {
+  width: 76%;
+  margin-top: 1em;
+}
+
+.number {
+  display: inline-block;
+  margin: 0.2em;
+  padding: 0.4em;
+  border: 1px solid #aaa;
+}
+
+.sort {
+  margin-right: 20px;
+}
+
+.sort i {
+  display: inline-block;
+  margin: auto 0.2em;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #1b73a7;
+}
+
+.min-max-btn {
+  text-decoration: underline;
+  cursor: pointer;
+}

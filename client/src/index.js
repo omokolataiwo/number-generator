@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import './style.css';
 import PhoneNumberGenerator from './PhoneNumberGenerator';
 
 const BASE_URL = 'http://localhost:3000/api';
@@ -93,17 +94,17 @@ class App extends React.Component {
           error={formError}
         />
         <div className="control">
-          <span>
+          <span className="sort">
             Sort <i onClick={() => this.sort(ASC)}>Asending</i>
             <i onClick={() => this.sort(DESC)}>Descending</i>
           </span>
-          <span onClick={() => this.getPhoneNumber(MIN_NUMBER)}>Min</span>{' '}
-          <span onClick={() => this.getPhoneNumber(MAX_NUMBER)}>Max</span>
+          <span className="min-max-btn" onClick={() => this.getPhoneNumber(MIN_NUMBER)}>Min</span>{' '}
+          <span className="min-max-btn" onClick={() => this.getPhoneNumber(MAX_NUMBER)}>Max</span>
         </div>
         <div>{number}</div>
         <div className="phone-numbers">
           {phoneNumbers.map(number => (
-            <span key={Math.random()}>{number}</span>
+            <span className="number" key={Math.random()}>{number}</span>
           ))}
         </div>
       </div>
