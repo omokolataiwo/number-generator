@@ -14,6 +14,7 @@ class App extends React.Component {
   state = {
     phoneNumbers: [],
     number: undefined,
+    generateForm: {},
   };
 
   componentDidMount() {
@@ -53,19 +54,43 @@ class App extends React.Component {
     this.setState({generateForm: {[name]: value}});
   };
 
-  generate = () => {
-    console.log('Phone number generating');
+  generateNumber = () => {
+    let {
+      generateForm: {numberCount},
+    } = this.state;
+    numberCount = parseInt(numberCount);
+
+    if (isNaN(numberCount) || numberCount < 1) {
+      this.setState({generateForm: {error: 'Enter a valid integer'}});
+      return;
+    }
+    axios
+      .post(`${BASE_URL}/phonenumber/generate`, {number: numberCount})
+      .then(({data: {payload: {numbers}}}) => {
+        numbers = numbers || [];
+        this.setState(prvState => ({
+          phoneNumbers: [...prvState.phoneNumbers, ...numbers],
+        }));
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   render() {
-    const {phoneNumbers, number} = this.state;
+    const {
+      phoneNumbers,
+      number,
+      generateForm: {error: formError},
+    } = this.state;
 
     return (
       <div>
         <h1>Phone Number Generator</h1>
         <PhoneNumberGenerator
           onInputFieldChange={this.inputFieldChange}
-          onGenerate={this.generate}
+          onGenerateNumber={this.generateNumber}
+          error={formError}
         />
         <div className="control">
           <span>

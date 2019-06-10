@@ -1,8 +1,13 @@
 import React from 'react';
 
-const PhoneNumberGenerator = ({onInputFieldChange, onGenerateNumber}) => {
+const PhoneNumberGenerator = ({
+  onInputFieldChange,
+  onGenerateNumber,
+  error,
+}) => {
   return (
     <div>
+      <p>{error}</p>
       <input
         type="text"
         name="numberCount"
@@ -15,4 +20,3 @@ const PhoneNumberGenerator = ({onInputFieldChange, onGenerateNumber}) => {
 };
 
 export default PhoneNumberGenerator;
-

@@ -15,7 +15,7 @@ export default class PhoneNumber {
   }
 
   static async generate(req, res) {
-    let phoneNumberCount = req.params.number;
+    let phoneNumberCount = req.body.number;
     const storage = new Storage();
     let phoneNumbers = await storage.read();
 
