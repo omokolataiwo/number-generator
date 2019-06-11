@@ -11,10 +11,11 @@ const PhoneNumberGenerator = ({
       <input
         type="text"
         name="numberCount"
+        id="numberCount"
         placeholder="Number of phone number"
         onChange={e => onInputFieldChange(e)}
       />
-      <button onClick={onGenerateNumber}>Generate</button>
+      <button id="generate-btn" onClick={onGenerateNumber}>Generate</button>
     </div>
   );
 };
