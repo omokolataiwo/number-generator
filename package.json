@@ -8,7 +8,7 @@
     "start": "node dist/index.js",
     "start:client": "NODE_ENV=development parcel client/src/index.html --open",
     "start:dev": "nodemon --watch server --exec \"yarn build && yarn start\"",
-    "test": "jest"
+    "test": "jest --updateSnapshot"
   },
   "dependencies": {
     "axios": "^0.19.0",
