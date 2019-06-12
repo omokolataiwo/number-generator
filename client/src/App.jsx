@@ -23,7 +23,7 @@ class App extends React.Component {
         this.setState({phoneNumbers});
       })
       .catch(error => {
-        console.log(error);
+        this.setState({generateForm: {error: error}});
       });
   }
   getPhoneNumber(order) {
@@ -72,7 +72,6 @@ class App extends React.Component {
         }));
       })
       .catch(error => {
-        console.log(error);
       });
   };
 
@@ -93,16 +92,33 @@ class App extends React.Component {
         />
         <div className="control">
           <span className="sort">
-            Sort <i id="sort-asc" onClick={() => this.sort(ASC)}>Asending</i>
-            <i id="sort-desc" onClick={() => this.sort(DESC)}>Descending</i>
+            Sort{' '}
+            <i id="sort-asc" onClick={() => this.sort(ASC)}>
+              Asending
+            </i>
+            <i id="sort-desc" onClick={() => this.sort(DESC)}>
+              Descending
+            </i>
           </span>
-          <span id="max-num-btn" className="min-max-btn" onClick={() => this.getPhoneNumber(MIN_NUMBER)}>Min</span>{' '}
-          <span id="min-num-btn" className="min-max-btn" onClick={() => this.getPhoneNumber(MAX_NUMBER)}>Max</span>
+          <span
+            id="min-num-btn"
+            className="min-max-btn"
+            onClick={() => this.getPhoneNumber(MIN_NUMBER)}>
+            Min
+          </span>{' '}
+          <span
+            id="max-num-btn"
+            className="min-max-btn"
+            onClick={() => this.getPhoneNumber(MAX_NUMBER)}>
+            Max
+          </span>
         </div>
-        <div>{number}</div>
-        <div className="phone-numbers">
+        <div id="min-max-number">{number}</div>
+        <div className="phone-numbers" data-testid="phoneNumbers">
           {phoneNumbers.map(number => (
-            <span className="number" key={Math.random()}>{number}</span>
+            <span data-testid="number" className="number" key={Math.random()}>
+              {number}
+            </span>
           ))}
         </div>
       </div>
