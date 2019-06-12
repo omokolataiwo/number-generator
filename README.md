@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/omokolataiwo/number-generator.svg?branch=master)](https://travis-ci.org/omokolataiwo/number-generator)
+
 ![Phone number generator](../assets/pngenerator.png?raw=true)
 Phone Number Generator is a unique phone number generator
 ## Features
